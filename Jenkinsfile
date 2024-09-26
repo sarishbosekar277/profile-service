@@ -1,9 +1,9 @@
 node{
     def MAVEN_HOME = tool "sheetalMV"
  env.PATH = "${env.PATH}:${MAVEN_HOME}/bin"
-
+	
     stage ('checkout'){
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sarishbosekar277/profile-service.git']]])
+        checkout([$class: 'GitSCM', branches: [[name: '*/development']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sarishbosekar277/profile-service.git']]])
         } 
     stage ('Compile'){
         sh 'mvn clean compile'
